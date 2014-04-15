@@ -1,6 +1,8 @@
 class SortedArray
   attr_accessor :internal_arr
 
+#commented out
+
   def initialize(input_arr=[])
     @internal_arr = []
     input_arr.each do |element|
