@@ -1,8 +1,6 @@
 class SortedArray
   attr_accessor :internal_arr
 
-#commented out
-
   def initialize(input_arr=[])
     @internal_arr = []
     input_arr.each do |element|
@@ -127,24 +125,44 @@ class SortedArray
   end
 
   def each &block
-    # loop over all elements in @internal_arr
-    # yield to each element
-
-    # let's keep track of our index
+    i = 0
+    while i < @internal_arr.length
+      yield @internal_arr[i]
+    i += 1
+    end
+  @internal_arr
   end
 
   def each_with_index &block
+    index = -1 
+      each do |x|
+    yield x, index += 1
+      end
   end
 
   def map &block
+    arr_1 = []
+    arr_2 = []
+    each do |x|
+      arr_1 << yield(x)
+      arr_2 = arr_1
+    end
+    arr_2
   end
 
   def map! &block
+    i = 0
+      each do |x|
+    @internal_arr[i] = yield(x)
+    i += 1
+      end
+    @internal_arr
   end
-
+  
   def find &block
   end
-
+  
   def inject acc=nil, &block
   end
+
 end
