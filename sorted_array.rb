@@ -160,9 +160,19 @@ class SortedArray
   end
   
   def find &block
+    each {|x| return x if yield(x)}
+    nil
   end
   
   def inject acc=nil, &block
+  #   each do |x|
+  #   if acc.nil?
+  #     acc = @internal_arr[0]
+  #   else
+  #     acc = yield acc, x
+  #   end
+  # end
+  # acc
   end
 
 end
